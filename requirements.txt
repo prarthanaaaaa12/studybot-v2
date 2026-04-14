@@ -5,5 +5,5 @@ langchain-community
 langchain-groq
 chromadb
 pypdf
-sentence-transformers
 python-multipart
+langchain-huggingface
