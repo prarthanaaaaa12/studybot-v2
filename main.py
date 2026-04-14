@@ -8,7 +8,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings.fastembed import FastEmbedEmbeddings
 from langchain_groq import ChatGroq
-from langchain.chains import RetrievalQA
+from langchain_community.chains import RetrievalQA
 from langchain_core.prompts import PromptTemplate
 
 app = FastAPI()
@@ -24,9 +24,9 @@ CHROMA_DIR = "./chroma_db"
 embeddings = FastEmbedEmbeddings()
 
 AGENT_PROMPTS = {
-    "study": """You are a Study Agent. Answer the student's question ONLY using the study materials below.\nContext:\n{context}\nQuestion: {question}\nAnswer:""",
+    "study": """You are a Study Agent. Answer ONLY using the study materials below.\nContext:\n{context}\nQuestion: {question}\nAnswer:""",
     "quiz": """You are a Quiz Agent. Generate 3 MCQs from the materials.\nContext:\n{context}\nTopic: {question}\nQuiz:""",
-    "summary": """You are a Summary Agent. Summarize the topic using bullet points.\nContext:\n{context}\nTopic: {question}\nSummary:""",
+    "summary": """You are a Summary Agent. Summarize using bullet points.\nContext:\n{context}\nTopic: {question}\nSummary:""",
     "code": """You are a Code Agent. Explain code concepts from the materials.\nContext:\n{context}\nQuestion: {question}\nAnswer:"""
 }
 
